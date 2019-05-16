@@ -2,6 +2,7 @@ package org.shop;
 
 
 import org.shop.config.RootConfig;
+import org.shop.repository.ProposalRepository;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -9,7 +10,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  * The ShopLauncher class.
  */
 public class ShopLauncher {
-    
+
     /**
      * The main method.
      *
@@ -17,8 +18,6 @@ public class ShopLauncher {
      */
     public static void main(String[] args) {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(RootConfig.class);
-        DataInitializer dataInitializer = ctx.getBean(DataInitializer.class);
-        dataInitializer.initData();
-        //TODO: implement using Spring Framework ApplicationContext
+        System.out.println(ctx.getBean(ProposalRepository.class).getProposal(1L));
     }
 }
