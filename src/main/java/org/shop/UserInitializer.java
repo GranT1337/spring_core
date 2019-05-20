@@ -1,5 +1,6 @@
 package org.shop;
 
+import org.shop.annotations.LoggingAnnotation;
 import org.shop.api.UserService;
 import org.shop.data.User;
 
@@ -24,6 +25,7 @@ public class UserInitializer {
     /**
      * Inits the users.
      */
+    @LoggingAnnotation
     public void initUsers() {
         User user = null;
         

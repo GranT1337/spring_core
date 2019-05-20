@@ -39,7 +39,7 @@ public class InitializesConfig {
     }
 
     @Bean(initMethod = "initData")
-    public DataInitializer dataInitializer() {
+    public DataInitializer dataInitializer(){
         return new DataInitializer();
     }
 

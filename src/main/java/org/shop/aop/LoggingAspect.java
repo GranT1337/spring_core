@@ -3,6 +3,7 @@ package org.shop.aop;
 import org.apache.log4j.Logger;
 import org.apache.log4j.spi.LoggerFactory;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -15,17 +16,18 @@ import java.util.stream.Collectors;
 
 @Aspect
 @Component
-public class MyAspect {
-    private Logger logger = Logger.getLogger(this.getClass());
+public class LoggingAspect {
+    private static final Logger logger = Logger.getLogger(LoggingAspect.class);
 
-    @Pointcut("execution(* org.shop.repository.map..*(..))")
-    public void callAtMyServicePublic() {
+    @Pointcut("@annotation(org.shop.annotations.LoggingAnnotation)")
+    public void loggingMethod() {
 
     }
 
-    @Before("callAtMyServicePublic()")
-    public void beforeCallAtMethod1() {
-        logger.info("LoL");
+    @Before("loggingMethod()")
+    public void beforeCallLoggingMethod(JoinPoint joinPoint) {
+        Signature methodName = joinPoint.getSignature();
+        logger.info(methodName.getName() + " " + methodName.getDeclaringTypeName());
     }
 
 }

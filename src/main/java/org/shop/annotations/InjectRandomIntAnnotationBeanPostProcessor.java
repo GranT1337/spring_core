@@ -1,6 +1,5 @@
 package org.shop.annotations;
 
-import org.shop.annotations.InjectRandomInt;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.util.ReflectionUtils;

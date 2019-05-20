@@ -2,6 +2,7 @@ package org.shop.api.impl;
 
 import java.util.List;
 
+import org.shop.annotations.LoggingAnnotation;
 import org.shop.api.ProductService;
 import org.shop.data.Product;
 import org.shop.repository.ProductRepository;
@@ -35,6 +36,7 @@ public class ProductServiceImpl implements ProductService {
      * @see org.shop.api.ProductService#getProductsByName(java.lang.String)
      */
     @Override
+    @LoggingAnnotation
     public List<Product> getProductsByName(String name) {
         return repository.getProductsByName(name);
     }

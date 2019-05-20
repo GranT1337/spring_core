@@ -1,6 +1,5 @@
 package org.shop;
 
-import org.shop.annotations.AspectAnnotation;
 import org.shop.annotations.InjectRandomInt;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -33,7 +32,7 @@ public class DataInitializer {
      */
 
     public void initData() {
-        System.out.println(randomValue);
+        System.out.println("Random number: " + randomValue);
         sellerInitializer.initSellers();
         userInitializer.initUsers();
         productInitializer.initProducts();

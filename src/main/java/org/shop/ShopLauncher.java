@@ -1,6 +1,9 @@
 package org.shop;
 
 
+import org.shop.api.ProductService;
+import org.shop.api.SellerService;
+import org.shop.api.UserService;
 import org.shop.config.RootConfig;
 import org.shop.repository.ProposalRepository;
 import org.springframework.context.ApplicationContext;
@@ -18,6 +21,13 @@ public class ShopLauncher {
      */
     public static void main(String[] args) {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(RootConfig.class);
-        System.out.println(ctx.getBean(ProposalRepository.class).getProposal(1L));
+
+        ctx.getBean(ProductService.class).getProducts().forEach(System.out::println);
+
+        ctx.getBean(SellerService.class).getSellers().forEach(System.out::println);
+
+        ctx.getBean(UserService.class).getUsers().forEach(System.out::println);
+
+
     }
 }

@@ -17,7 +17,6 @@ public class RepositoryConfig {
     @Value("${intitialSequence}")
     private long initialSequence;
 
-
     @Bean
     public UserRepository userRepository() {
         return new UserRepositoryFactory().createUserRepository();

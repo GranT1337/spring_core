@@ -11,4 +11,5 @@ public class AnnotationConfig {
     InjectRandomIntAnnotationBeanPostProcessor injectRandomIntAnnotationBeanPostProcessor() {
         return new InjectRandomIntAnnotationBeanPostProcessor();
     }
+
 }

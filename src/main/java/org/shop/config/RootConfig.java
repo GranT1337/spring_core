@@ -1,6 +1,6 @@
 package org.shop.config;
 
-import org.shop.aop.MyAspect;
+import org.shop.aop.LoggingAspect;
 import org.springframework.context.annotation.*;
 
 @Configuration
@@ -10,7 +10,7 @@ import org.springframework.context.annotation.*;
 public class RootConfig {
 
     @Bean
-    public MyAspect myAspect() {
-        return new MyAspect();
+    public LoggingAspect myAspect() {
+        return new LoggingAspect();
     }
 }

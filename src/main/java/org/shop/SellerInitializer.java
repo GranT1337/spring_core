@@ -5,11 +5,13 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.shop.annotations.LoggingAnnotation;
 import org.shop.api.SellerService;
 import org.shop.data.Seller;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.Resource;
+
 
 /**
  * The Seller Initializer util class.
@@ -27,6 +29,7 @@ public class SellerInitializer {
     /**
      * Inits the sellers.
      */
+    @LoggingAnnotation
     public void initSellers() {
         List<Seller> sellers = new LinkedList<Seller>();
         

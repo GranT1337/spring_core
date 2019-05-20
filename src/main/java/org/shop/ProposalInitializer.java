@@ -1,6 +1,6 @@
 package org.shop;
 
-import org.shop.annotations.AspectAnnotation;
+import org.shop.annotations.LoggingAnnotation;
 import org.shop.api.ProductService;
 
 import org.shop.api.ProposalService;
@@ -31,7 +31,7 @@ public class ProposalInitializer {
      * Inits the proposals.
      */
 
-    @AspectAnnotation
+    @LoggingAnnotation
     public void initProposals() {
         Seller amazon = sellerService.getSellerById((long) 1);
         Seller samsung = sellerService.getSellerById((long) 2);
@@ -42,10 +42,8 @@ public class ProposalInitializer {
         Product galaxyAce = productService.getProductsByName(Products.SAMSUNG_GALAXY_ACE).get(0);
         
         //Samsung
-        //System.out.println(proposalService.getProposalsByProductId(1L));
         proposalService.createProposal(samsung.getId(), galaxyAce.getId(), 250.0);
         proposalService.createProposal(samsung.getId(), galaxyTab.getId(), 500.0);
-        //System.out.println(proposalService.getProposalsByProductId(1L));
         //Amazon
         proposalService.createProposal(amazon.getId(), kindleFire.getId(), 199.0);
         proposalService.createProposal(amazon.getId(), kindleTouch.getId(), 99.0);
